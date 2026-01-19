@@ -14,7 +14,15 @@
       "Bash(netstat:*)",
       "Bash(npx tsc:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(TURBOPACK=0 npm run dev:*)",
+      "Bash(taskkill:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(if [ -f \"nul\" ])",
+      "Bash(then rm -f nul)",
+      "Bash(else echo \"No nul file found\")",
+      "Bash(fi)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nfix: Downgrade to Tailwind CSS v3 to resolve Turbopack Windows error\n\nFixed critical Turbopack error on Windows caused by Tailwind CSS v4\nincompatibility with PostCSS processing.\n\nChanges:\n- Downgraded tailwindcss from v4 to v3.4.1\n- Removed @tailwindcss/postcss package\n- Added autoprefixer for PostCSS\n- Updated postcss.config.mjs to use Tailwind v3 syntax\n- Updated app/globals.css: @import \"tailwindcss\" → @tailwind directives\n- Removed Tailwind v4 @theme inline block\n- Deleted corrupted ''nul'' file created by Turbopack bug\n\nError fixed:\n- \"Failed to write app endpoint /page\"\n- \"reading file c:...nul\" \\(Windows nul device error\\)\n- GET / now returns 200 instead of 500\n\nPage now compiles and loads successfully at http://localhost:3000\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n\\)\")"
     ]
   }
 }

@@ -59,7 +59,7 @@ export function AntigravityBackground({
   }
 
   return (
-    <div className="absolute inset-0 w-full h-full" style={{ pointerEvents: 'none' }}>
+    <div className="absolute inset-0 w-full h-full">
       <Antigravity
         count={count}
         magnetRadius={magnetRadius}

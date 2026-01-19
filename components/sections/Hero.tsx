@@ -15,7 +15,7 @@ export function Hero() {
           count={150}
           magnetRadius={15}
           ringRadius={12}
-          color="#FF9FFC"
+          color="#E6B500"
           autoAnimate={true}
           particleSize={1.5}
           particleShape="capsule"
@@ -27,7 +27,7 @@ export function Hero() {
         <GradientMesh />
       </div>
 
-      <div className="max-w-5xl mx-auto text-center">
+      <div className="relative max-w-5xl mx-auto text-center z-10">
         {/* Badge */}
         <motion.div
           className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8"
@@ -50,16 +50,18 @@ export function Hero() {
         >
           Dein Vertrieb.
           <br />
-          <ShinyText
-            text="Auf Autopilot."
-            speed={3}
-            color="#FFFFFF"
-            shineColor="#FFD700"
-            spread={120}
-            yoyo={true}
-            delay={1}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold"
-          />
+          <span className="block text-center">
+            <ShinyText
+              text="Auf Autopilot."
+              speed={3}
+              color="#FFFFFF"
+              shineColor="#E6B500"
+              spread={120}
+              yoyo={true}
+              delay={1}
+              className="text-5xl md:text-7xl lg:text-8xl font-bold"
+            />
+          </span>
         </motion.h1>
 
         {/* Subheadline */}
