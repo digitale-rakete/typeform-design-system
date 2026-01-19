@@ -40,7 +40,7 @@ export const phases: Phase[] = [
     name: 'SETUP',
     emoji: '⚙️',
     lordIcons: {
-      primary: 'vihyezfk', // Gears/cogs interlocking
+      primary: '978-project-management', // Project management icon
       secondary: 'zzcjjxew' // Tools/wrench
     },
     color: '#60A5FA',
@@ -80,7 +80,7 @@ export const phases: Phase[] = [
     name: 'QUALIFY',
     emoji: '✅',
     lordIcons: {
-      primary: 'pqxcmkfo', // Funnel/filter
+      primary: '760-review', // Review/rating icon
       secondary: 'lupuorrc' // Star/rating system
     },
     color: '#C084FC',
@@ -99,7 +99,7 @@ export const phases: Phase[] = [
     name: 'OPTIMIZE',
     emoji: '🔄',
     lordIcons: {
-      primary: 'xzryuvoc', // Chart-up/growth curve
+      primary: '683-female-customer-service', // Customer service/support icon
       secondary: 'zqikcdpp' // Team/people icons
     },
     color: '#00CED1',
@@ -128,25 +128,25 @@ export const channels: Channel[] = [
   {
     name: 'E-Mail',
     emoji: '📧',
-    lordIconId: 'ozeryoqb', // Email/mail with animation
+    lordIconId: '145-envelope-mail', // Email envelope icon
     color: '#6366F1'
   },
   {
     name: 'LinkedIn',
     emoji: '💼',
-    lordIconId: 'amqbzslh', // Business/briefcase
+    lordIconId: '2677-logo-square-linkedin', // LinkedIn logo icon
     color: '#0A66C2'
   },
   {
     name: 'Landing Page',
     emoji: '🌐',
-    lordIconId: 'zpxybbhl', // Browser/web
+    lordIconId: 'zpxybbhl', // Browser/web (working)
     color: '#10B981'
   },
   {
     name: 'Ads',
     emoji: '📣',
-    lordIconId: 'ofqpikiu', // Megaphone/announcement
+    lordIconId: '1027-marketing-campaign', // Marketing campaign icon
     color: '#F59E0B'
   }
 ]
