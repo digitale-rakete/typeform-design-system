@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { Card } from '../Card'
 import { channels } from '@/lib/customer-journey-data'
+import { LordIcon } from '@/components/LordIcon'
 
 const channelDetails = [
   {
@@ -69,14 +70,23 @@ export function MultiChannel() {
                   <div className="flex items-center space-x-4 mb-4">
                     {/* Animated Icon Container */}
                     <div
-                      className="relative w-20 h-20 rounded-2xl flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:scale-110 text-4xl"
+                      className="relative w-20 h-20 rounded-2xl flex items-center justify-center backdrop-blur-sm transition-all duration-300 hover:scale-110"
                       style={{
                         backgroundColor: `${channel.color}15`,
                         border: `2px solid ${channel.color}30`,
                         boxShadow: `0 0 30px ${channel.color}20`,
                       }}
                     >
-                      {channel.emoji}
+                      {channel.lordIconId ? (
+                        <LordIcon
+                          icon={channel.lordIconId}
+                          size={64}
+                          colorize={channel.color}
+                          loop={true}
+                        />
+                      ) : (
+                        <span className="text-4xl">{channel.emoji}</span>
+                      )}
                     </div>
                     <h3
                       className="text-2xl font-bold"

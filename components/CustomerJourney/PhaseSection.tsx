@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import type { Phase } from '@/lib/customer-journey-data'
+import { LordIcon } from '@/components/LordIcon'
 
 interface PhaseSectionProps {
   phase: Phase
@@ -34,14 +35,23 @@ export function PhaseSection({ phase, isActive }: PhaseSectionProps) {
             className="mb-8"
           >
             <div
-              className="inline-flex items-center justify-center w-24 h-24 rounded-full text-5xl backdrop-blur-sm"
+              className="inline-flex items-center justify-center w-24 h-24 rounded-full backdrop-blur-sm"
               style={{
                 backgroundColor: `${phase.color}15`,
                 border: `3px solid ${phase.color}40`,
                 boxShadow: `0 0 40px ${phase.color}20`,
               }}
             >
-              {phase.emoji}
+              {phase.lordIcons?.primary ? (
+                <LordIcon
+                  icon={phase.lordIcons.primary}
+                  size={80}
+                  colorize={phase.color}
+                  loop={true}
+                />
+              ) : (
+                <span className="text-5xl">{phase.emoji}</span>
+              )}
             </div>
           </motion.div>
 
