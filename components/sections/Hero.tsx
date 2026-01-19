@@ -2,10 +2,31 @@
 
 import { motion } from 'framer-motion'
 import { Button } from '../Button'
+import { AntigravityBackground } from '../react-bits/AntigravityBackground'
+import ShinyText from '../react-bits/ShinyText'
+import { GradientMesh } from '../ui/GradientMesh'
 
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 lg:px-8 pt-20">
+      {/* Desktop: Antigravity 3D Background */}
+      <div className="hidden md:block absolute inset-0 -z-10">
+        <AntigravityBackground
+          count={150}
+          magnetRadius={15}
+          ringRadius={12}
+          color="#FF9FFC"
+          autoAnimate={true}
+          particleSize={1.5}
+          particleShape="capsule"
+        />
+      </div>
+
+      {/* Mobile: Simple Gradient Background */}
+      <div className="md:hidden absolute inset-0 -z-10">
+        <GradientMesh />
+      </div>
+
       <div className="max-w-5xl mx-auto text-center">
         {/* Badge */}
         <motion.div
@@ -29,9 +50,16 @@ export function Hero() {
         >
           Dein Vertrieb.
           <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent-gold via-accent-cyan to-accent-gold">
-            Auf Autopilot.
-          </span>
+          <ShinyText
+            text="Auf Autopilot."
+            speed={3}
+            color="#FFFFFF"
+            shineColor="#FFD700"
+            spread={120}
+            yoyo={true}
+            delay={1}
+            className="text-5xl md:text-7xl lg:text-8xl font-bold"
+          />
         </motion.h1>
 
         {/* Subheadline */}
