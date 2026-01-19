@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+/*
+  Salesbrain Design System
+  Dark Mode with Warm Violet/Aubergine Background
+*/
+
+:root {
+  /* Backgrounds - Warm Violet/Aubergine */
+  --bg-primary: #1a1025;      /* Main background - dark violet */
+  --bg-elevated: #2a1f3d;     /* Cards, elevated surfaces */
+  --bg-hover: #3a2f4d;        /* Hover states */
+
+  /* Accent Colors */
+  --accent-gold: #E6B500;     /* Warm gold/mustard yellow - PRIMARY CTA */
+  --accent-cyan: #00CED1;     /* Cyan accent line */
+
+  /* Text */
+  --text-primary: #FFFFFF;    /* Pure white - main text */
+  --text-muted: #B8A7D1;      /* Muted violet-gray - subtext */
+
+  /* Semantic Colors */
+  --color-success: #22C55E;   /* Fresh grass green - positive */
+  --color-error: #EF4444;     /* Warm red - negative */
+  --color-warning: #F59E0B;   /* Warning orange */
+  --color-info: #60A5FA;      /* Info blue */
+
+  /* Borders */
+  --border: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(255, 255, 255, 0.2);
+
+  /* Phase Colors - Customer Journey */
+  --phase-research: #22C55E;   /* Green - matches success color */
+  --phase-setup: #60A5FA;      /* Blue */
+  --phase-golive: #E6B500;     /* Gold - matches accent */
+  --phase-qualify: #C084FC;    /* Lighter purple - distinct from background */
+  --phase-optimize: #00CED1;   /* Cyan - matches accent */
+}
+
+@theme inline {
+  /* Backgrounds */
+  --color-background: var(--bg-primary);
+  --color-foreground: var(--text-primary);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-bg-hover: var(--bg-hover);
+
+  /* Accents */
+  --color-accent-gold: var(--accent-gold);
+  --color-accent-cyan: var(--accent-cyan);
+
+  /* Text */
+  --color-text-primary: var(--text-primary);
+  --color-text-muted: var(--text-muted);
+
+  /* Semantic Colors */
+  --color-success: var(--color-success);
+  --color-error: var(--color-error);
+  --color-warning: var(--color-warning);
+  --color-info: var(--color-info);
+
+  /* Phase Colors */
+  --color-phase-research: var(--phase-research);
+  --color-phase-setup: var(--phase-setup);
+  --color-phase-golive: var(--phase-golive);
+  --color-phase-qualify: var(--phase-qualify);
+  --color-phase-optimize: var(--phase-optimize);
+
+  /* Typography */
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+
+  /* Spacing Extensions */
+  --spacing-18: 4.5rem;
+  --spacing-28: 7rem;
+
+  /* Animation Durations */
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+
+  /* Easing */
+  --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Classes */
+.font-display {
+  font-family: var(--font-sans);
+  font-weight: 600;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection styles */
+::selection {
+  background-color: var(--accent-gold);
+  color: var(--bg-primary);
+}
+
+/* Scrollbar styling (webkit browsers) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-elevated);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bg-hover);
+}
+
+/* Focus visible styles */
+:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
+}
