@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 
 interface LordIconProps {
   icon: string
@@ -8,21 +8,6 @@ interface LordIconProps {
   loop?: boolean
   colorize?: string
   delay?: number
-}
-
-// Extend JSX to recognize lord-icon custom element
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'lord-icon': {
-        src?: string
-        trigger?: string
-        colors?: string
-        style?: React.CSSProperties
-        ref?: React.Ref<HTMLElement>
-      }
-    }
-  }
 }
 
 export function LordIcon({
@@ -73,16 +58,15 @@ export function LordIcon({
     ? `primary:${colorize},secondary:${colorize}`
     : undefined
 
-  return (
-    <lord-icon
-      ref={iconRef}
-      src={`https://cdn.lordicon.com/${icon}.json`}
-      trigger={loop ? 'loop' : 'hover'}
-      colors={colors}
-      style={{
-        width: `${size}px`,
-        height: `${size}px`
-      }}
-    />
-  )
+  // Use React.createElement to bypass JSX type checking for custom element
+  return React.createElement('lord-icon', {
+    ref: iconRef,
+    src: `https://cdn.lordicon.com/${icon}.json`,
+    trigger: loop ? 'loop' : 'hover',
+    colors: colors,
+    style: {
+      width: `${size}px`,
+      height: `${size}px`
+    }
+  })
 }
