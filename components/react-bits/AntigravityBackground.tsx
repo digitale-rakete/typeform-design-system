@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState } from 'react'
 import Antigravity from './Antigravity'
 
 interface AntigravityBackgroundProps {
@@ -39,8 +39,6 @@ export function AntigravityBackground({
   fieldStrength = 10
 }: AntigravityBackgroundProps) {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
-  const [canRender, setCanRender] = useState(false)
-  const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     // Check for reduced motion preference
@@ -55,42 +53,13 @@ export function AntigravityBackground({
     return () => mediaQuery.removeEventListener('change', handleChange)
   }, [])
 
-  useEffect(() => {
-    // Clear any existing WebGL contexts before mounting
-    if (containerRef.current) {
-      const existingCanvas = containerRef.current.querySelector('canvas')
-      if (existingCanvas) {
-        const gl = existingCanvas.getContext('webgl') || existingCanvas.getContext('webgl2')
-        if (gl) {
-          const ext = gl.getExtension('WEBGL_lose_context')
-          if (ext) {
-            ext.loseContext()
-          }
-        }
-      }
-    }
-
-    // Small delay to ensure context is fully released
-    const timer = setTimeout(() => setCanRender(true), 100)
-
-    return () => {
-      clearTimeout(timer)
-      setCanRender(false)
-    }
-  }, [])
-
   // Don't render if user prefers reduced motion
   if (prefersReducedMotion) {
     return null
   }
 
-  // Don't render until context is ready
-  if (!canRender) {
-    return <div ref={containerRef} className="absolute inset-0 w-full h-full" />
-  }
-
   return (
-    <div ref={containerRef} className="absolute inset-0 w-full h-full">
+    <div className="absolute inset-0 w-full h-full">
       <Antigravity
         count={count}
         magnetRadius={magnetRadius}
