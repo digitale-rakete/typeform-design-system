@@ -213,7 +213,10 @@ const AntigravityInner = ({
 
 const Antigravity = (props: AntigravityProps) => {
   return (
-    <Canvas camera={{ position: [0, 0, 50], fov: 35 }}>
+    <Canvas
+      camera={{ position: [0, 0, 50], fov: 35 }}
+      style={{ pointerEvents: 'auto' }}
+    >
       <AntigravityInner {...props} />
     </Canvas>
   )
