@@ -27,7 +27,7 @@ export function Hero() {
         <GradientMesh />
       </div>
 
-      <div className="relative max-w-5xl mx-auto text-center z-10">
+      <div className="relative max-w-5xl mx-auto text-center z-10" style={{ pointerEvents: 'none' }}>
         {/* Badge */}
         <motion.div
           className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8"
@@ -85,11 +85,11 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <Button size="lg">
+          <Button size="lg" style={{ pointerEvents: 'auto' }}>
             Erstgespräch buchen
           </Button>
 
-          <Button size="lg" variant="secondary">
+          <Button size="lg" variant="secondary" style={{ pointerEvents: 'auto' }}>
             Customer Journey ansehen
           </Button>
         </motion.div>
