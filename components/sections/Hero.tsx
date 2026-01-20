@@ -10,13 +10,13 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 lg:px-8 pt-20">
       {/* Desktop: Antigravity 3D Background */}
-      <div className="hidden md:block absolute top-0 left-0 right-0 bottom-0 -z-10 max-h-screen overflow-hidden pointer-events-none">
+      <div className="hidden md:block absolute top-0 left-0 right-0 bottom-0 -z-10 max-h-screen overflow-hidden">
         <AntigravityBackground
           count={80}
           magnetRadius={15}
           ringRadius={12}
           color="#E6B500"
-          autoAnimate={true}
+          autoAnimate={false}
           particleSize={1.5}
           particleShape="capsule"
         />
