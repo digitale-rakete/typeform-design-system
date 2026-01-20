@@ -112,6 +112,7 @@ const AntigravityInner = ({
     if (!mesh) return
 
     const { viewport: v, pointer: m } = state
+    if (!v || !m) return
 
     const mouseDist = Math.sqrt(
       Math.pow(m.x - lastMousePos.current.x, 2) +
@@ -212,7 +213,10 @@ const AntigravityInner = ({
 
 const Antigravity = (props: AntigravityProps) => {
   return (
-    <Canvas camera={{ position: [0, 0, 50], fov: 35 }}>
+    <Canvas
+      camera={{ position: [0, 0, 50], fov: 35 }}
+      style={{ pointerEvents: 'auto' }}
+    >
       <AntigravityInner {...props} />
     </Canvas>
   )
