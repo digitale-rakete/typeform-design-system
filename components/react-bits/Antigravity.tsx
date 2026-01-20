@@ -1,7 +1,7 @@
 'use client'
 
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { useMemo, useRef } from 'react'
+import { useMemo, useRef, useEffect } from 'react'
 import * as THREE from 'three'
 
 interface AntigravityProps {
@@ -212,10 +212,28 @@ const AntigravityInner = ({
 }
 
 const Antigravity = (props: AntigravityProps) => {
+  // Cleanup WebGL context on unmount to prevent context conflicts
+  useEffect(() => {
+    return () => {
+      const canvas = document.querySelector('canvas')
+      if (canvas) {
+        const gl = canvas.getContext('webgl') || canvas.getContext('webgl2')
+        if (gl) {
+          const ext = gl.getExtension('WEBGL_lose_context')
+          if (ext) {
+            ext.loseContext()
+          }
+        }
+      }
+    }
+  }, [])
+
   return (
     <Canvas
+      key="antigravity-canvas-main"
       camera={{ position: [0, 0, 50], fov: 35 }}
       style={{ pointerEvents: 'auto' }}
+      gl={{ preserveDrawingBuffer: false }}
     >
       <AntigravityInner {...props} />
     </Canvas>
