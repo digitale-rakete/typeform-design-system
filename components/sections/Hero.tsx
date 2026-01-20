@@ -10,14 +10,14 @@ export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-6 lg:px-8 pt-20">
       {/* Desktop: Antigravity 3D Background */}
-      <div className="hidden md:block absolute inset-0 -z-10">
+      <div className="hidden md:block absolute top-0 left-0 right-0 bottom-0 -z-10 max-h-screen overflow-hidden">
         <AntigravityBackground
-          count={150}
+          count={80}
           magnetRadius={15}
           ringRadius={12}
           color="#E6B500"
-          autoAnimate={true}
-          particleSize={1.5}
+          autoAnimate={false}
+          particleSize={0.8}
           particleShape="capsule"
         />
       </div>
@@ -27,7 +27,7 @@ export function Hero() {
         <GradientMesh />
       </div>
 
-      <div className="relative max-w-5xl mx-auto text-center z-10" style={{ pointerEvents: 'none' }}>
+      <div className="relative max-w-5xl mx-auto text-center z-10">
         {/* Badge */}
         <motion.div
           className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8"
@@ -85,11 +85,11 @@ export function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <Button size="lg" style={{ pointerEvents: 'auto' }}>
+          <Button size="lg">
             Erstgespräch buchen
           </Button>
 
-          <Button size="lg" variant="secondary" style={{ pointerEvents: 'auto' }}>
+          <Button size="lg" variant="secondary">
             Customer Journey ansehen
           </Button>
         </motion.div>
