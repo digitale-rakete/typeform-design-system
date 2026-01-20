@@ -28,7 +28,7 @@ const problems = [
 
 export function Problem() {
   return (
-    <section id="problems" className="py-32 px-6 lg:px-8 border-t border-white/5">
+    <section id="problems" className="py-32 px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div

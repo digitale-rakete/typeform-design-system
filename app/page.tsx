@@ -1,6 +1,7 @@
 import { Navbar } from '@/components/Navbar'
 import { GradientMesh } from '@/components/ui/GradientMesh'
 import { Hero } from '@/components/sections/Hero'
+import { DashboardShowcase } from '@/components/sections/DashboardShowcase'
 import { Problem } from '@/components/sections/Problem'
 import { CustomerJourney } from '@/components/CustomerJourney/CustomerJourney'
 import { MultiChannel } from '@/components/sections/MultiChannel'
@@ -21,6 +22,9 @@ export default function Home() {
 
       {/* Hero Section */}
       <Hero />
+
+      {/* Dashboard Showcase - Separate Section */}
+      <DashboardShowcase />
 
       {/* Problem Section - Pain Points */}
       <Problem />
