@@ -8,6 +8,7 @@ interface LordIconProps {
   loop?: boolean
   colorize?: string
   delay?: number
+  speed?: number
 }
 
 export function LordIcon({
@@ -15,7 +16,8 @@ export function LordIcon({
   size = 96,
   loop = true,
   colorize,
-  delay = 0
+  delay = 0,
+  speed = 1
 }: LordIconProps) {
   const iconRef = useRef<HTMLElement>(null)
 
@@ -64,6 +66,7 @@ export function LordIcon({
     src: `https://cdn.lordicon.com/${icon}.json`,
     trigger: loop ? 'loop' : 'hover',
     colors: colors,
+    speed: speed,
     style: {
       width: `${size}px`,
       height: `${size}px`

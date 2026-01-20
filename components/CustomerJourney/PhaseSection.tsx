@@ -48,6 +48,7 @@ export function PhaseSection({ phase, isActive }: PhaseSectionProps) {
                   size={80}
                   colorize={phase.color}
                   loop={true}
+                  speed={phase.id === 1 ? 0.5 : 1}
                 />
               ) : (
                 <span className="text-5xl">{phase.emoji}</span>

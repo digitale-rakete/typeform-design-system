@@ -1,12 +1,44 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import { useEffect } from 'react'
 
 /**
  * GradientMesh - Animated background gradient
  * Creates a subtle, moving gradient mesh with gold/cyan accents
+ * Now with interactive Anti-Gravity parallax effect
  */
 export function GradientMesh() {
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+
+  // Smooth spring physics for mouse movement
+  const springConfig = { damping: 20, stiffness: 200 }
+  const x = useSpring(mouseX, springConfig)
+  const y = useSpring(mouseY, springConfig)
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const { innerWidth, innerHeight } = window
+      // Calculate position relative to center
+      mouseX.set(e.clientX - innerWidth / 2)
+      mouseY.set(e.clientY - innerHeight / 2)
+    }
+
+    window.addEventListener('mousemove', handleMouseMove)
+    return () => window.removeEventListener('mousemove', handleMouseMove)
+  }, [mouseX, mouseY])
+
+  // Parallax transforms - divded by factor to control speed (Inverse for "Anti-Gravity")
+  const x1 = useTransform(x, (val) => val / -10)
+  const y1 = useTransform(y, (val) => val / -10)
+
+  const x2 = useTransform(x, (val) => val / 15)
+  const y2 = useTransform(y, (val) => val / 15)
+
+  const x3 = useTransform(x, (val) => val / -20)
+  const y3 = useTransform(y, (val) => val / -20)
+
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
       {/* Base gradient */}
@@ -18,10 +50,10 @@ export function GradientMesh() {
         style={{
           background: 'radial-gradient(circle, #E6B500 0%, transparent 70%)',
           filter: 'blur(100px)',
+          x: x1,
+          y: y1,
         }}
         animate={{
-          x: [0, 50, 0],
-          y: [0, 30, 0],
           scale: [1, 1.1, 1],
         }}
         transition={{
@@ -37,10 +69,10 @@ export function GradientMesh() {
         style={{
           background: 'radial-gradient(circle, #00CED1 0%, transparent 70%)',
           filter: 'blur(100px)',
+          x: x2,
+          y: y2,
         }}
         animate={{
-          x: [0, -30, 0],
-          y: [0, -50, 0],
           scale: [1, 1.15, 1],
         }}
         transition={{
@@ -56,6 +88,8 @@ export function GradientMesh() {
         style={{
           background: 'radial-gradient(circle, #C084FC 0%, transparent 70%)',
           filter: 'blur(80px)',
+          x: x3,
+          y: y3,
         }}
         animate={{
           scale: [1, 1.2, 1],
