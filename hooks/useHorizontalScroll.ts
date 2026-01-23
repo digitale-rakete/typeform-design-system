@@ -17,6 +17,8 @@ export function useHorizontalScroll(config: HorizontalScrollConfig) {
   const currentX = useRef(0)
   const rafId = useRef<number>()
   const isInSection = useRef(false)
+  const lastScrollTime = useRef(Date.now())
+  const snapTimeoutRef = useRef<number>()
 
   useEffect(() => {
     if (!enabled || !containerRef.current) return
@@ -26,6 +28,13 @@ export function useHorizontalScroll(config: HorizontalScrollConfig) {
     // Lerp function for smooth interpolation
     const lerp = (start: number, end: number, factor: number) => {
       return start + (end - start) * factor
+    }
+
+    // Snap to nearest phase center
+    const snapToNearest = () => {
+      const nearestIndex = Math.round(currentX.current / 100)
+      const snapTarget = Math.max(0, Math.min(nearestIndex * 100, (numSlides - 1) * 100))
+      targetX.current = snapTarget
     }
 
     // Animation loop for smooth movement
@@ -48,6 +57,19 @@ export function useHorizontalScroll(config: HorizontalScrollConfig) {
     // Scroll event handler
     const handleScroll = () => {
       if (!container) return
+
+      // Update last scroll time
+      lastScrollTime.current = Date.now()
+
+      // Clear existing snap timeout
+      if (snapTimeoutRef.current) {
+        window.clearTimeout(snapTimeoutRef.current)
+      }
+
+      // Set new snap timeout - trigger after 150ms no scroll
+      snapTimeoutRef.current = window.setTimeout(() => {
+        snapToNearest()
+      }, 150)
 
       const rect = container.getBoundingClientRect()
       const viewportHeight = window.innerHeight
@@ -94,6 +116,9 @@ export function useHorizontalScroll(config: HorizontalScrollConfig) {
     return () => {
       if (rafId.current) {
         cancelAnimationFrame(rafId.current)
+      }
+      if (snapTimeoutRef.current) {
+        window.clearTimeout(snapTimeoutRef.current)
       }
       window.removeEventListener('scroll', handleScroll)
     }

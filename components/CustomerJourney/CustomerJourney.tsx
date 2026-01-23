@@ -91,7 +91,7 @@ export function CustomerJourney() {
               // Calculate distance from active phase for fade effect
               const distanceFromActive = Math.abs(index - activeIndex)
               const opacity = distanceFromActive === 0 ? 1 :
-                             distanceFromActive === 1 ? 0.3 : 0.1
+                             distanceFromActive === 1 ? 0.15 : 0.05
 
               return (
                 <div

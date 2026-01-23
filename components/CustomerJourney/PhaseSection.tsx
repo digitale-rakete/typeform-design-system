@@ -13,12 +13,12 @@ export function PhaseSection({ phase, isActive }: PhaseSectionProps) {
   return (
     <section
       id={`phase-${phase.id}`}
-      className="relative min-h-screen flex items-center justify-center py-16 sm:py-20 md:py-24 lg:py-32 px-4 xs:px-5 sm:px-6 md:px-7 lg:px-8"
+      className="relative w-screen h-screen flex items-center justify-center px-8"
       style={{
         background: `radial-gradient(ellipse at center, ${phase.color}08 0%, transparent 70%)`,
       }}
     >
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl w-full">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -78,7 +78,7 @@ export function PhaseSection({ phase, isActive }: PhaseSectionProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="text-3xl xs:text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-bold mb-6 text-white"
+            className="text-3xl xs:text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-bold mb-4 text-white"
           >
             {phase.headline}
           </motion.h2>
@@ -89,7 +89,7 @@ export function PhaseSection({ phase, isActive }: PhaseSectionProps) {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.5 }}
-            className="text-lg xs:text-xl sm:text-xl md:text-2xl lg:text-2xl font-semibold mb-12"
+            className="text-base xs:text-lg sm:text-lg md:text-xl font-semibold mb-8"
             style={{ color: phase.color }}
           >
             {phase.timeframe}
@@ -112,7 +112,7 @@ export function PhaseSection({ phase, isActive }: PhaseSectionProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6 }}
-            className="grid gap-3 xs:gap-4 sm:gap-4 text-left mb-12 max-w-2xl mx-auto"
+            className="grid gap-2 xs:gap-3 sm:gap-3 text-left mb-8 max-w-3xl mx-auto"
           >
             {phase.whatWeDo.map((item, index) => (
               <motion.div
@@ -121,7 +121,7 @@ export function PhaseSection({ phase, isActive }: PhaseSectionProps) {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.7 + index * 0.1 }}
-                className="flex items-start gap-3 xs:gap-4 sm:gap-4 p-4 xs:p-5 sm:p-5 rounded-xl backdrop-blur-sm border transition-all duration-300"
+                className="flex items-start gap-2 xs:gap-3 sm:gap-3 p-3 xs:p-4 sm:p-4 rounded-xl backdrop-blur-sm border transition-all duration-300"
                 style={{
                   backgroundColor: 'rgba(42, 31, 61, 0.3)',
                   borderColor: 'rgba(255, 255, 255, 0.08)',
@@ -147,7 +147,7 @@ export function PhaseSection({ phase, isActive }: PhaseSectionProps) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.9 }}
-            className="mb-8 p-6 xs:p-7 sm:p-8 md:p-8 rounded-2xl backdrop-blur-sm border transition-all duration-300 max-w-2xl mx-auto"
+            className="mb-6 p-5 xs:p-6 sm:p-6 md:p-6 rounded-2xl backdrop-blur-sm border transition-all duration-300 max-w-3xl mx-auto"
             style={{
               backgroundColor: 'rgba(42, 31, 61, 0.35)',
               borderColor: `${phase.color}30`,
@@ -171,18 +171,18 @@ export function PhaseSection({ phase, isActive }: PhaseSectionProps) {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 1.1 }}
-            className="p-6 xs:p-7 sm:p-8 md:p-8 rounded-2xl backdrop-blur-sm border-2 transition-all duration-300"
+            className="p-5 xs:p-6 sm:p-6 md:p-6 rounded-2xl backdrop-blur-sm border-2 transition-all duration-300 max-w-3xl mx-auto"
             style={{
               backgroundColor: 'rgba(42, 31, 61, 0.4)',
               borderColor: phase.color,
               boxShadow: `0 0 30px ${phase.color}20`,
             }}
           >
-            <p className="text-xs xs:text-sm sm:text-sm uppercase tracking-wider text-white/50 mb-3 font-semibold">
+            <p className="text-xs xs:text-sm sm:text-sm uppercase tracking-wider text-white/50 mb-2 font-semibold">
               Ergebnis
             </p>
             <p
-              className="text-lg xs:text-xl sm:text-xl md:text-2xl lg:text-2xl font-bold"
+              className="text-base xs:text-lg sm:text-lg md:text-xl font-bold"
               style={{ color: phase.color }}
             >
               {phase.result}
