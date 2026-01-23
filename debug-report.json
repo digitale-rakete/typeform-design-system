@@ -1,0 +1,214 @@
+{
+  "timestamp": "2026-01-23T14:11:36.990Z",
+  "consoleMessages": [
+    {
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold",
+      "location": {
+        "url": "http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js",
+        "lineNumber": 2297,
+        "columnNumber": 27
+      }
+    },
+    {
+      "type": "log",
+      "text": "[HMR] connected",
+      "location": {
+        "url": "http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js",
+        "lineNumber": 2297,
+        "columnNumber": 27
+      }
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "location": {
+        "url": "http://localhost:3000/favicon.ico",
+        "lineNumber": 0,
+        "columnNumber": 0
+      }
+    },
+    {
+      "type": "warning",
+      "text": "You are trying to animate backgroundColor from \"#22C55E\" to \"transparent\". \"transparent\" is not an animatable value.. For more information and steps for solving, visit https://motion.dev/troubleshooting/value-not-animatable",
+      "location": {
+        "url": "http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js",
+        "lineNumber": 2297,
+        "columnNumber": 27
+      }
+    },
+    {
+      "type": "warning",
+      "text": "You are trying to animate backgroundColor from \"transparent\" to \"#E6B500\". \"transparent\" is not an animatable value.. For more information and steps for solving, visit https://motion.dev/troubleshooting/value-not-animatable",
+      "location": {
+        "url": "http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js",
+        "lineNumber": 2297,
+        "columnNumber": 27
+      }
+    },
+    {
+      "type": "warning",
+      "text": "You are trying to animate backgroundColor from \"transparent\" to \"#60A5FA\". \"transparent\" is not an animatable value.. For more information and steps for solving, visit https://motion.dev/troubleshooting/value-not-animatable",
+      "location": {
+        "url": "http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js",
+        "lineNumber": 2297,
+        "columnNumber": 27
+      }
+    },
+    {
+      "type": "warning",
+      "text": "You are trying to animate backgroundColor from \"#E6B500\" to \"transparent\". \"transparent\" is not an animatable value.. For more information and steps for solving, visit https://motion.dev/troubleshooting/value-not-animatable",
+      "location": {
+        "url": "http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js",
+        "lineNumber": 2297,
+        "columnNumber": 27
+      }
+    },
+    {
+      "type": "log",
+      "text": "[Fast Refresh] rebuilding",
+      "location": {
+        "url": "http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js",
+        "lineNumber": 2297,
+        "columnNumber": 27
+      }
+    },
+    {
+      "type": "log",
+      "text": "[Fast Refresh] done in 234ms",
+      "location": {
+        "url": "http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js",
+        "lineNumber": 2297,
+        "columnNumber": 27
+      }
+    },
+    {
+      "type": "log",
+      "text": "[Fast Refresh] rebuilding",
+      "location": {
+        "url": "http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js",
+        "lineNumber": 2297,
+        "columnNumber": 27
+      }
+    },
+    {
+      "type": "log",
+      "text": "[Fast Refresh] done in 1150ms",
+      "location": {
+        "url": "http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js",
+        "lineNumber": 2297,
+        "columnNumber": 27
+      }
+    },
+    {
+      "type": "warning",
+      "text": "You are trying to animate backgroundColor from \"#60A5FA\" to \"transparent\". \"transparent\" is not an animatable value.. For more information and steps for solving, visit https://motion.dev/troubleshooting/value-not-animatable",
+      "location": {
+        "url": "http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js",
+        "lineNumber": 2297,
+        "columnNumber": 27
+      }
+    },
+    {
+      "type": "warning",
+      "text": "You are trying to animate backgroundColor from \"transparent\" to \"#E6B500\". \"transparent\" is not an animatable value.. For more information and steps for solving, visit https://motion.dev/troubleshooting/value-not-animatable",
+      "location": {
+        "url": "http://localhost:3000/_next/static/chunks/node_modules_next_dist_f3530cac._.js",
+        "lineNumber": 2297,
+        "columnNumber": 27
+      }
+    }
+  ],
+  "networkRequests": [
+    {
+      "url": "https://cdn.lordicon.com/lordicon.js",
+      "method": "GET",
+      "resourceType": "script"
+    },
+    {
+      "url": "https://cdn.lordicon.com/msoeawqm.json",
+      "method": "GET",
+      "resourceType": "fetch"
+    },
+    {
+      "url": "https://cdn.lordicon.com/uukerzzv.json",
+      "method": "GET",
+      "resourceType": "fetch"
+    },
+    {
+      "url": "https://cdn.lordicon.com/wloilxuq.json",
+      "method": "GET",
+      "resourceType": "fetch"
+    },
+    {
+      "url": "https://cdn.lordicon.com/egiwmiit.json",
+      "method": "GET",
+      "resourceType": "fetch"
+    },
+    {
+      "url": "https://cdn.lordicon.com/slkvcfos.json",
+      "method": "GET",
+      "resourceType": "fetch"
+    },
+    {
+      "url": "https://cdn.lordicon.com/rhvddzym.json",
+      "method": "GET",
+      "resourceType": "fetch"
+    },
+    {
+      "url": "https://cdn.lordicon.com/wxnxiano.json",
+      "method": "GET",
+      "resourceType": "fetch"
+    },
+    {
+      "url": "https://cdn.lordicon.com/zpxybbhl.json",
+      "method": "GET",
+      "resourceType": "fetch"
+    },
+    {
+      "url": "https://cdn.lordicon.com/kndkiwmf.json",
+      "method": "GET",
+      "resourceType": "fetch"
+    }
+  ],
+  "errors": [],
+  "iconDetails": {
+    "attributes": {
+      "src": "https://cdn.lordicon.com/slkvcfos.json",
+      "trigger": "loop",
+      "colors": "primary:#00CED1,secondary:#00CED1",
+      "speed": "1",
+      "style": "width:80px;height:80px"
+    },
+    "visibility": {
+      "isVisible": true,
+      "boundingBox": {
+        "x": 916,
+        "y": 12.395833969116211,
+        "width": 80,
+        "height": 80.00000190734863
+      }
+    },
+    "computedStyle": {
+      "display": "block",
+      "visibility": "visible",
+      "opacity": "1",
+      "width": "80px",
+      "height": "80px",
+      "position": "relative"
+    },
+    "hasShadowRoot": true,
+    "shadowContent": "<div class=\"body ready\" style=\"--lord-icon-primary-base: #00ced1; --lord-icon-secondary-base: #00ced1;\"><slot></slot><style>\n                    :host(:not(.current-color)) svg path[fill].primary {\n                        fill: var(--lord-icon-primary, var(--lord-icon-primary-base, #000));\n                    }\n        \n                    :host(:not(.current-color)) svg path[stroke].primary {\n                        stroke: var(--lord-icon-primary, var(--lord-icon-primary-base, #000));\n        ",
+    "lordIconLibraryLoaded": true
+  },
+  "screenshots": [
+    "screenshots/01-full-page.png",
+    "screenshots/02-phase5-section.png",
+    "screenshots/03-icon-element.png",
+    "screenshots/phase-1-comparison.png",
+    "screenshots/phase-2-comparison.png",
+    "screenshots/phase-3-comparison.png",
+    "screenshots/phase-4-comparison.png",
+    "screenshots/phase-5-comparison.png"
+  ]
+}

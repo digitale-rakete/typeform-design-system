@@ -7,28 +7,28 @@ const problems = [
   {
     title: 'Dein CRM ist ein Friedhof',
     description:
-      'Hunderte von Kontakten. Null Bewegung. Du verbringst mehr Zeit mit der Pflege des Systems als mit echten Verkaufsgesprächen.',
+      'Hunderte Kontakte. Null Bewegung. Du verbringst mehr Zeit mit Datenpflege als mit echten Verkaufsgesprächen. Und während du Excel-Listen aktualisierst, ruft dein Wettbewerb bereits an.',
   },
   {
-    title: 'Kontakte sind kalt, bevor du reagierst',
+    title: 'Kontakte werden kalt, bevor du reagierst',
     description:
-      'Bis du einen Lead kontaktierst, hat er schon drei Konkurrenten angeschrieben. Du bist immer einen Schritt zu spät.',
+      '78% der Käufer entscheiden sich für den Erstantwortenden. Das Problem? Die meisten B2B-Unternehmen brauchen über 40 Stunden für eine Antwort. Bis dahin ist die Chance längst beim Wettbewerb.',
   },
   {
-    title: 'LinkedIn-Outreach frisst Stunden',
+    title: 'LinkedIn-Outreach frisst deine Zeit',
     description:
-      'Profile suchen, Connection Requests schreiben, Follow-ups verfolgen. Jeden Tag die gleiche manuelle Arbeit – ohne Garantie auf Erfolg.',
+      'Profile durchklicken, Connection Requests schreiben, Follow-ups tracken. Jeden Tag die gleiche manuelle Arbeit. Das Ergebnis? Vielleicht 5% Antwortrate – wenn du Glück hast. LinkedIn funktioniert. Aber nicht so.',
   },
   {
     title: 'Agenturen kosten ein Vermögen',
     description:
-      'CHF 5000+ pro Monat, lange Setup-Zeiten, und am Ende hast du keine Kontrolle über deine eigenen Kontakte und Prozesse.',
+      'CHF 5\'000+ pro Monat. Wochen bis zum Start. Lange Reportings, wenig Resultate. Und am Ende gehören dir nicht mal die Kontakte und Prozesse. Du zahlst – aber du kontrollierst nichts.',
   },
 ]
 
 export function Problem() {
   return (
-    <section id="problems" className="py-32 px-6 lg:px-8">
+    <section id="problems" className="py-16 sm:py-20 md:py-24 lg:py-32 px-4 xs:px-5 sm:px-6 md:px-7 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -38,21 +38,21 @@ export function Problem() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-error/10 border border-error/20 mb-6">
-            <span className="text-sm text-error font-semibold">
+          <div className="inline-flex items-center px-3 xs:px-4 sm:px-4 py-1.5 xs:py-2 sm:py-2 rounded-full bg-error/10 border border-error/20 mb-6">
+            <span className="text-xs xs:text-sm sm:text-sm text-error font-semibold">
               Kennst du das?
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          <h2 className="text-3xl xs:text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-bold text-white mb-6">
             Wir verstehen dein Problem
           </h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            B2B-Vertrieb ist zeitaufwändig, teuer und ineffizient. Du bist nicht allein.
+          <p className="text-base xs:text-lg sm:text-xl md:text-xl text-white/70 max-w-3xl mx-auto">
+            B2B-Vertrieb ist zeitaufwändig, teuer und frustrierend. Du bist nicht allein.
           </p>
         </motion.div>
 
         {/* Problem Cards Grid */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-6 lg:gap-8">
           {problems.map((problem, index) => (
             <motion.div
               key={index}
@@ -66,10 +66,10 @@ export function Problem() {
                   {/* Red indicator */}
                   <div className="flex-shrink-0 w-3 h-3 rounded-full bg-error mt-2" />
                   <div>
-                    <h3 className="text-2xl font-bold text-white mb-3">
+                    <h3 className="text-xl xs:text-xl sm:text-2xl md:text-2xl font-bold text-white mb-3">
                       {problem.title}
                     </h3>
-                    <p className="text-white/70 leading-relaxed">
+                    <p className="text-sm xs:text-base sm:text-base text-white/70 leading-relaxed">
                       {problem.description}
                     </p>
                   </div>
@@ -87,11 +87,11 @@ export function Problem() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          <p className="text-xl text-white/80 mb-4">
+          <p className="text-base xs:text-lg sm:text-xl md:text-xl text-white/80 mb-4">
             <span className="text-accent-gold font-semibold">Salesbrain löst all diese Probleme.</span>
           </p>
-          <p className="text-white/60">
-            Done-for-you. Multi-Channel. Aktiv in 2-3 Wochen.
+          <p className="text-sm xs:text-base sm:text-base text-white/60">
+            Done-for-you. Multi-Channel. Aktiv in 3-4 Wochen.
           </p>
         </motion.div>
       </div>

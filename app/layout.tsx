@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
+import { FloatingCaseStudiesButton } from '@/components/FloatingCaseStudiesButton'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -19,7 +20,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: 'Salesbrain | Dein KI-Verkäufer',
   description: 'Aktiv in 30 Tagen. Verkauft 24/7. Der einzige KI-Agent mit 20 Jahren Schweizer Vertriebserfahrung.',
-  keywords: ['Salesbrain', 'KI-Verkäufer', 'B2B-Vertrieb', 'AI Sales', 'Lead Generation', 'Schweiz'],
+  keywords: ['Salesbrain', 'KI-Verkäufer', 'B2B-Vertrieb', 'AI Sales', 'Chancen-Generierung', 'Schweiz'],
   authors: [{ name: 'digitale rakete GmbH' }],
   openGraph: {
     title: 'Salesbrain | Dein KI-Verkäufer',
@@ -50,7 +51,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="de" className={`${inter.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        <FloatingCaseStudiesButton />
+      </body>
     </html>
   )
 }

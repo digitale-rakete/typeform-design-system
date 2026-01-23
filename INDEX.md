@@ -138,7 +138,7 @@
 ### Für Sales & Marketing Apps
 
 **IMMER nach B2B vs B2C fragen!** Das macht einen enormen Unterschied für:
-- Lead-Qualifizierung
+- Chancen-Qualifizierung
 - Datenbeschaffung
 - Verkaufsprozess
 - Marketing-Strategie

@@ -12,7 +12,7 @@ export function FinalCTA() {
       <div className="relative max-w-4xl mx-auto text-center">
         {/* Headline */}
         <motion.h2
-          className="text-4xl md:text-6xl font-bold text-white mb-6"
+          className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl lg:text-6xl font-bold text-white mb-6"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -24,13 +24,13 @@ export function FinalCTA() {
 
         {/* Subheadline */}
         <motion.p
-          className="text-xl text-white/70 mb-12 max-w-2xl mx-auto"
+          className="text-base xs:text-lg sm:text-xl md:text-xl text-white/70 mb-12 max-w-2xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          Buche jetzt dein kostenloses Erstgespräch und erfahre, wie Salesbrain
+          Buche jetzt deine kostenlose Demo und erfahre, wie Salesbrain
           deinen Vertrieb revolutioniert.
         </motion.p>
 
@@ -42,11 +42,13 @@ export function FinalCTA() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <Button size="lg" className="min-w-[280px]">
-            Jetzt Erstgespräch buchen
-          </Button>
+          <a href="https://calendly.com/eduard-mirdita-digitalerakete/30min" target="_blank" rel="noopener noreferrer">
+            <Button size="lg" className="w-full sm:min-w-[240px] sm:w-auto">
+              Demo buchen
+            </Button>
+          </a>
 
-          <Button size="lg" variant="secondary" className="min-w-[280px]">
+          <Button size="lg" variant="secondary" className="w-full sm:min-w-[240px] sm:w-auto">
             Oder schreib uns
           </Button>
         </motion.div>
@@ -59,13 +61,13 @@ export function FinalCTA() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          ✓ Keine Kreditkarte erforderlich · ✓ 100% DSG-konform · ✓ Antwort innerhalb von 24h
+          Unverbindliche Beratung · Antwort innerhalb von 24h
         </motion.p>
       </div>
 
       {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-accent-gold/5 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent-cyan/5 rounded-full blur-3xl -z-10" />
+      <div className="absolute top-0 right-0 w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] bg-accent-gold/5 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-0 left-0 w-[150px] h-[150px] sm:w-[250px] sm:h-[250px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[400px] bg-accent-cyan/5 rounded-full blur-3xl -z-10" />
     </section>
   )
 }

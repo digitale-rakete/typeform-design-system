@@ -35,7 +35,7 @@ export default function Home() {
       {/* Multi-Channel Orchestration */}
       <MultiChannel />
 
-      {/* Social Proof - Testimonials & Trust */}
+      {/* Social Proof - Customer Logos & Trust */}
       <SocialProof />
 
       {/* Comparison Table */}
@@ -54,7 +54,7 @@ export default function Home() {
       <footer className="border-t border-white/5 py-12 px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center text-white/50 text-sm">
           <p>© 2026 Salesbrain | digitale rakete GmbH | Kilchberg/Zug, Schweiz</p>
-          <p className="mt-2">100% DSG-konform · Made in Switzerland 🇨🇭</p>
+          <p className="mt-2">Made in Switzerland</p>
         </div>
       </footer>
     </main>

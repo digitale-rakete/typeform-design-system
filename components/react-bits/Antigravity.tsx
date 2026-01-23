@@ -63,7 +63,7 @@ const AntigravityInner = ({
   const dummy = useMemo(() => new THREE.Object3D(), [])
 
   const lastMousePos = useRef({ x: 0, y: 0 })
-  const lastMouseMoveTime = useRef(0)
+  const lastMouseMoveTime = useRef(Date.now())
   const virtualMouse = useRef({ x: 0, y: 0 })
 
   const particles = useMemo<Particle[]>(() => {

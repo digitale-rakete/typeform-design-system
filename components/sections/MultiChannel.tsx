@@ -12,7 +12,7 @@ const channelDetails = [
   },
   {
     description: 'Connection Requests, InMails, Profile Views – alles koordiniert',
-    features: ['Auto-Connect', 'Personalisierte Messages', 'Lead-Tracking'],
+    features: ['Auto-Connect', 'Personalisierte Messages', 'Kontakt-Tracking'],
   },
   {
     description: 'Massgeschneiderte Seiten für jede Kampagne & Zielgruppe',
@@ -28,8 +28,8 @@ export function MultiChannel() {
   return (
     <section id="multi-channel" className="relative py-32 px-6 lg:px-8 overflow-hidden">
       {/* Background accents */}
-      <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-accent-gold/5 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-accent-cyan/5 rounded-full blur-3xl -z-10" />
+      <div className="absolute top-1/4 right-0 w-[250px] h-[250px] sm:w-[350px] sm:h-[350px] md:w-[450px] md:h-[450px] lg:w-[600px] lg:h-[600px] bg-accent-gold/5 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-1/4 left-0 w-[200px] h-[200px] sm:w-[300px] sm:h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] bg-accent-cyan/5 rounded-full blur-3xl -z-10" />
 
       <div className="max-w-7xl mx-auto">
         {/* Header */}
@@ -45,16 +45,16 @@ export function MultiChannel() {
               Die Orchestrierung
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          <h2 className="text-3xl xs:text-4xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
             Multi-Channel Outreach
           </h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto">
+          <p className="text-base xs:text-lg sm:text-xl md:text-xl text-white/70 max-w-3xl mx-auto">
             Alle Kanäle arbeiten zusammen – koordiniert, automatisiert, effizient.
           </p>
         </motion.div>
 
         {/* Channels Grid */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-16">
+        <div className="grid md:grid-cols-2 gap-4 sm:gap-6 md:gap-6 lg:gap-8 mb-16">
           {channels.map((channel, index) => {
             const details = channelDetails[index]
             return (
@@ -77,19 +77,15 @@ export function MultiChannel() {
                         boxShadow: `0 0 30px ${channel.color}20`,
                       }}
                     >
-                      {channel.lordIconId ? (
-                        <LordIcon
-                          icon={channel.lordIconId}
-                          size={64}
-                          colorize={channel.color}
-                          loop={true}
-                        />
-                      ) : (
-                        <span className="text-4xl">{channel.emoji}</span>
-                      )}
+                      <LordIcon
+                        icon={channel.lordIconId}
+                        size={64}
+                        colorize={channel.color}
+                        loop={true}
+                      />
                     </div>
                     <h3
-                      className="text-2xl font-bold"
+                      className="text-xl sm:text-2xl md:text-2xl font-bold"
                       style={{ color: channel.color }}
                     >
                       {channel.name}

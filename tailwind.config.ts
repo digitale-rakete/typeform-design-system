@@ -9,6 +9,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        'xs': '400px',
+      },
       colors: {
         // Backgrounds - Warm Violet/Aubergine
         background: 'var(--bg-primary)',

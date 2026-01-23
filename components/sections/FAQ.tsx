@@ -13,7 +13,7 @@ const faqs = [
   {
     question: 'Was kostet SalesbrAIn pro Monat?',
     answer:
-      'Die monatlichen Kosten liegen zwischen CHF 2500 und CHF 4000, abhängig vom gewählten Paket und den benötigten Kanälen. Im Gegensatz zu Agenturen (CHF 5000+) oder dem Zeitaufwand eines eigenen CRM-Systems bietet SalesbrAIn das beste Preis-Leistungs-Verhältnis.',
+      'Die monatlichen Kosten liegen zwischen CHF 2\'490 und CHF 4\'990, abhängig vom gewählten Paket und den benötigten Kanälen. Im Gegensatz zu Agenturen (CHF 5\'000+) oder dem Zeitaufwand eines eigenen CRM-Systems bietet SalesbrAIn das beste Preis-Leistungs-Verhältnis.',
   },
   {
     question: 'Brauche ich technisches Know-how?',
@@ -51,7 +51,7 @@ export function FAQ() {
   const [openItems, setOpenItems] = useState<string[]>([])
 
   return (
-    <section id="faq" className="py-32 px-6 lg:px-8 border-t border-white/5">
+    <section id="faq" className="py-16 sm:py-20 md:py-24 lg:py-32 px-4 xs:px-5 sm:px-6 md:px-7 lg:px-8 border-t border-white/5">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <motion.div
@@ -61,15 +61,15 @@ export function FAQ() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 mb-6">
-            <span className="text-sm text-accent-cyan font-semibold">
+          <div className="inline-flex items-center px-3 xs:px-4 sm:px-4 py-1.5 xs:py-2 sm:py-2 rounded-full bg-accent-cyan/10 border border-accent-cyan/20 mb-6">
+            <span className="text-xs xs:text-sm sm:text-sm text-accent-cyan font-semibold">
               Häufige Fragen
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+          <h2 className="text-3xl xs:text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-bold text-white mb-6">
             Alles, was du wissen musst
           </h2>
-          <p className="text-xl text-white/70">
+          <p className="text-base xs:text-lg sm:text-xl md:text-xl text-white/70">
             Die wichtigsten Fragen zu SalesbrAIn – ehrlich beantwortet.
           </p>
         </motion.div>
@@ -85,7 +85,7 @@ export function FAQ() {
             type="multiple"
             value={openItems}
             onValueChange={setOpenItems}
-            className="space-y-4"
+            className="space-y-3 xs:space-y-4 sm:space-y-4"
           >
             {faqs.map((faq, index) => (
               <Accordion.Item
@@ -94,8 +94,8 @@ export function FAQ() {
                 className="border border-white/10 rounded-2xl overflow-hidden bg-[#141419] hover:border-accent-gold/30 transition-colors"
               >
                 <Accordion.Header>
-                  <Accordion.Trigger className="w-full px-6 py-5 md:px-8 md:py-6 text-left flex items-center justify-between group">
-                    <span className="text-lg md:text-xl font-semibold text-white pr-4 group-hover:text-accent-gold transition-colors">
+                  <Accordion.Trigger className="w-full px-4 xs:px-5 sm:px-6 md:px-8 py-4 xs:py-5 sm:py-5 md:py-6 text-left flex items-center justify-between group">
+                    <span className="text-base xs:text-lg sm:text-lg md:text-xl font-semibold text-white pr-4 group-hover:text-accent-gold transition-colors">
                       {faq.question}
                     </span>
                     <span
@@ -108,8 +108,8 @@ export function FAQ() {
                   </Accordion.Trigger>
                 </Accordion.Header>
                 <Accordion.Content className="overflow-hidden data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up">
-                  <div className="px-6 pb-6 md:px-8 md:pb-8">
-                    <p className="text-white/70 leading-relaxed">{faq.answer}</p>
+                  <div className="px-4 xs:px-5 sm:px-6 md:px-8 pb-4 xs:pb-5 sm:pb-6 md:pb-8">
+                    <p className="text-sm xs:text-base sm:text-base text-white/70 leading-relaxed">{faq.answer}</p>
                   </div>
                 </Accordion.Content>
               </Accordion.Item>
@@ -125,16 +125,16 @@ export function FAQ() {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <p className="text-lg text-white/80 mb-6">
+          <p className="text-base xs:text-lg sm:text-lg text-white/80 mb-6">
             Noch Fragen? Lass uns sprechen.
           </p>
           <a
-            href="https://cal.com/salesbrain/30min"
+            href="https://calendly.com/eduard-mirdita-digitalerakete/30min"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block px-8 py-4 bg-accent-gold text-[#1a1025] font-semibold rounded-xl hover:bg-[#ffbf00] hover:scale-[1.02] transition-all"
+            className="inline-block px-6 xs:px-8 sm:px-8 py-3 xs:py-4 sm:py-4 text-sm xs:text-base sm:text-base bg-accent-gold text-[#1a1025] font-semibold rounded-xl hover:bg-[#ffbf00] hover:scale-[1.02] transition-all"
           >
-            Kostenloses Gespräch buchen
+            Demo buchen
           </a>
         </motion.div>
       </div>

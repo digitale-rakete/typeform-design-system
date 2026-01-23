@@ -5,47 +5,49 @@ import { Card } from '../Card'
 
 const packages = [
   {
-    name: 'Starter',
-    tagline: 'Für den Einstieg',
-    description: 'Perfekt für Unternehmen, die mit Multi-Channel-Outreach starten wollen.',
+    name: 'Basis-Paket',
+    tagline: '',
+    description: '',
+    price: 2490,
+    recommendedRuntime: 6,
+    setupCost: 1790,
     features: [
-      'E-Mail-Sequenzen (automatisiert)',
-      'LinkedIn Connection Requests',
-      'Landing Page (1 Variante)',
-      'Monatliche Strategy Calls',
-      'Performance-Tracking Dashboard',
+      'Ermittlung der gesamten Zielgruppe (KI-basierte Datenvalidierung)',
+      'Bis zu 2 Kampagnen pro Jahr',
+      'B2B Sales Funnel inkl. Landing Page, LinkedIn, E-Mail',
+      'SalesbrAIn Dashboard',
+      'Monatliches Online-Meeting',
     ],
     cta: 'Gespräch buchen',
     highlight: false,
   },
   {
-    name: 'Professional',
-    tagline: 'Die komplette Lösung',
-    description: 'Maximale Reichweite durch orchestrierte Multi-Channel-Kampagnen.',
+    name: 'Wachstums-Paket',
+    tagline: 'Beliebteste Wahl',
+    description: '',
+    price: 3490,
+    recommendedRuntime: 6,
+    setupCost: 1790,
     features: [
-      'Alles aus Starter, plus:',
-      'LinkedIn InMails & Messaging',
-      'Landing Pages (3 Varianten)',
-      'A/B Testing & Optimierung',
-      'Erweiterte AI-Personalisierung',
-      'Wöchentliche Optimierung',
-      'Dedizierter Account Manager',
+      'Alles aus Basis-Paket',
+      'Bis zu 4 Kampagnen pro Jahr',
+      'Erweiterte Datenvalidierung',
+      'DACH-Region',
     ],
     cta: 'Gespräch buchen',
     highlight: true,
   },
   {
-    name: 'Enterprise',
-    tagline: 'Für Skalierung',
-    description: 'Massgeschneiderte Lösungen für grosse Teams und komplexe Sales-Prozesse.',
+    name: 'Professional-Paket',
+    tagline: '',
+    description: '',
+    price: 4990,
+    recommendedRuntime: 12,
+    setupCost: 1790,
     features: [
-      'Alles aus Professional, plus:',
-      'Ads (Meta & LinkedIn) optional',
-      'Unbegrenzte Landing Pages',
-      'Multi-Markt & Multi-Language',
-      'Custom Integrationen (CRM, ERP)',
-      'White-Label Möglichkeit',
-      'Priority Support',
+      'Alles aus Wachstums-Paket',
+      'Bis zu 6 Kampagnen pro Jahr',
+      'Mehrere LinkedIn und E-Mail Kanäle',
     ],
     cta: 'Gespräch buchen',
     highlight: false,
@@ -54,7 +56,7 @@ const packages = [
 
 export function Packages() {
   return (
-    <section id="packages" className="py-32 px-6 lg:px-8 border-t border-white/5">
+    <section id="packages" className="py-16 sm:py-20 md:py-24 lg:py-32 px-4 xs:px-5 sm:px-6 md:px-7 lg:px-8 border-t border-white/5">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -64,21 +66,21 @@ export function Packages() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent-gold/10 border border-accent-gold/20 mb-6">
-            <span className="text-sm text-accent-gold font-semibold">
+          <div className="inline-flex items-center px-3 xs:px-4 sm:px-4 py-1.5 xs:py-2 sm:py-2 rounded-full bg-accent-gold/10 border border-accent-gold/20 mb-6">
+            <span className="text-xs xs:text-sm sm:text-sm text-accent-gold font-semibold">
               Unsere Pakete
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            Wähle dein Paket
+          <h2 className="text-3xl xs:text-4xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-6xl font-bold text-white mb-6">
+            Ihr Investment
           </h2>
-          <p className="text-xl text-white/70 max-w-3xl mx-auto">
-            Drei Pakete für unterschiedliche Bedürfnisse. Preise auf Anfrage – massgeschneidert für dein Unternehmen.
+          <p className="text-base xs:text-lg sm:text-xl md:text-xl text-white/70 max-w-3xl mx-auto">
+            Klare Preise. Keine versteckten Kosten. Punkt.
           </p>
         </motion.div>
 
         {/* Packages Grid */}
-        <div className="grid md:grid-cols-3 gap-6 lg:gap-8 mb-16">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-6 lg:gap-8 mb-16">
           {packages.map((pkg, index) => (
             <motion.div
               key={index}
@@ -99,7 +101,7 @@ export function Packages() {
                 {/* Recommended Badge */}
                 {pkg.highlight && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <div className="px-4 py-1.5 bg-accent-gold text-[#1a1025] text-sm font-semibold rounded-full">
+                    <div className="px-4 py-1.5 bg-accent-gold text-[#1a1025] text-xs xs:text-sm sm:text-sm font-semibold rounded-full">
                       Empfohlen
                     </div>
                   </div>
@@ -108,7 +110,7 @@ export function Packages() {
                 {/* Package Header */}
                 <div className="mb-6">
                   <h3
-                    className={`text-2xl font-bold mb-2 ${
+                    className={`text-xl xs:text-2xl sm:text-2xl font-bold mb-2 ${
                       pkg.highlight
                         ? 'text-transparent bg-clip-text bg-gradient-to-r from-accent-gold via-accent-cyan to-accent-gold'
                         : 'text-white'
@@ -116,13 +118,50 @@ export function Packages() {
                   >
                     {pkg.name}
                   </h3>
-                  <p className="text-sm text-white/60">{pkg.tagline}</p>
+                  <p className="text-xs xs:text-sm sm:text-sm text-white/60">{pkg.tagline}</p>
                 </div>
 
                 {/* Description */}
-                <p className="text-white/70 mb-6 leading-relaxed">
+                <p className="text-sm xs:text-base sm:text-base text-white/70 mb-6 leading-relaxed">
                   {pkg.description}
                 </p>
+
+                {/* Pricing */}
+                <div className="mb-6 pb-6 border-b border-white/10">
+                  <div className="flex items-baseline gap-2 mb-3">
+                    <span className="text-3xl xs:text-4xl sm:text-4xl font-bold text-white">
+                      CHF {pkg.price.toLocaleString('de-CH')}.-
+                    </span>
+                    <span className="text-sm xs:text-base sm:text-base text-white/60">
+                      pro Monat
+                    </span>
+                  </div>
+
+                  {/* Runtime Badge */}
+                  <div className="inline-flex items-center px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-3">
+                    <span className="text-xs text-white/70">
+                      Min. {pkg.recommendedRuntime} Monate
+                    </span>
+                  </div>
+
+                  {/* Setup Costs */}
+                  <div className="mt-4 p-3 rounded-lg bg-white/5 border border-white/10">
+                    <div className="flex items-center justify-between mb-1">
+                      <span className="text-xs xs:text-sm sm:text-sm text-white/70">
+                        + Einmalige Einrichtung
+                      </span>
+                      <span className="text-sm xs:text-base sm:text-base font-semibold text-white">
+                        CHF {pkg.setupCost.toLocaleString('de-CH')}.-
+                      </span>
+                    </div>
+                    <p className="text-xs text-white/50 mb-2">
+                      Inkl. Kickoff, TAM/SAM/SOM-Analyse, komplettes System-Setup
+                    </p>
+                    <p className="text-xs text-white/40">
+                      Nicht enthalten: Google Ads Budget, Content-Erstellung
+                    </p>
+                  </div>
+                </div>
 
                 {/* Features List */}
                 <div className="flex-1 mb-8">
@@ -134,9 +173,9 @@ export function Packages() {
                             pkg.highlight ? 'text-accent-gold' : 'text-success'
                           }`}
                         >
-                          ✓
+                          •
                         </span>
-                        <span className="text-white/80 text-sm leading-relaxed">
+                        <span className="text-white/80 text-xs xs:text-sm sm:text-sm leading-relaxed">
                           {feature}
                         </span>
                       </li>
@@ -146,12 +185,12 @@ export function Packages() {
 
                 {/* CTA Button */}
                 <a
-                  href="https://cal.com/salesbrain/30min"
+                  href="https://calendly.com/eduard-mirdita-digitalerakete/30min"
                   target="_blank"
                   rel="noopener noreferrer"
                   className={`
                     w-full inline-flex items-center justify-center
-                    px-10 py-5 text-lg font-semibold rounded-lg
+                    px-6 xs:px-8 sm:px-10 py-3 xs:py-4 sm:py-5 text-base xs:text-base sm:text-lg font-semibold rounded-lg
                     transition-all duration-[300ms] ease-out
                     ${pkg.highlight
                       ? 'bg-accent-gold text-[#1a1025] hover:bg-[#ffbf00] hover:scale-[1.02] hover:shadow-lg hover:shadow-accent-gold/20'
@@ -181,9 +220,9 @@ export function Packages() {
               backgroundColor: 'rgba(230, 181, 0, 0.05)',
             }}
           >
-            <p className="text-lg text-white/90">
-              <span className="text-accent-gold font-semibold">Preise auf Anfrage.</span>
-              {' '}Keine Setup-Kosten. Keine versteckten Gebühren. Massgeschneidert für dein Unternehmen.
+            <p className="text-sm xs:text-base sm:text-lg md:text-lg text-white/90">
+              <span className="text-accent-gold font-semibold">Transparente Preise.</span>
+              {' '}Keine versteckten Gebühren. Massgeschneidert für dein Unternehmen.
             </p>
           </div>
         </motion.div>

@@ -13,7 +13,7 @@
 #### Warum das wichtig ist:
 
 **Im Sales-Bereich:**
-- **Lead-Qualifizierung:** B2B-Leads brauchen andere Qualifizierungskriterien
+- **Chancen-Qualifizierung:** B2B-Chancen brauchen andere Qualifizierungskriterien
 - **Datenbeschaffung:** B2B benötigt Firmendaten, B2C persönliche Daten
 - **Verkaufsprozess:** Längere Cycles bei B2B (3-12 Monate) vs. kurze bei B2C (Minuten-Stunden)
 - **Preisgestaltung:** Unterschiedliche Preismodelle und Verhandlungsspielräume
