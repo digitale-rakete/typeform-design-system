@@ -19,6 +19,7 @@ export function useHorizontalScroll(config: HorizontalScrollConfig) {
   const isInSection = useRef(false)
   const lastScrollTime = useRef(Date.now())
   const snapTimeoutRef = useRef<number>()
+  const isSnapping = useRef(false)
 
   useEffect(() => {
     if (!enabled || !containerRef.current) return
@@ -32,9 +33,15 @@ export function useHorizontalScroll(config: HorizontalScrollConfig) {
 
     // Snap to nearest phase center
     const snapToNearest = () => {
+      isSnapping.current = true
       const nearestIndex = Math.round(currentX.current / 100)
       const snapTarget = Math.max(0, Math.min(nearestIndex * 100, (numSlides - 1) * 100))
       targetX.current = snapTarget
+
+      // Reset snapping flag after snap completes (1 second should be enough)
+      setTimeout(() => {
+        isSnapping.current = false
+      }, 1000)
     }
 
     // Animation loop for smooth movement
@@ -58,6 +65,9 @@ export function useHorizontalScroll(config: HorizontalScrollConfig) {
     const handleScroll = () => {
       if (!container) return
 
+      // User is actively scrolling, cancel any snap
+      isSnapping.current = false
+
       // Update last scroll time
       lastScrollTime.current = Date.now()
 
@@ -66,10 +76,10 @@ export function useHorizontalScroll(config: HorizontalScrollConfig) {
         window.clearTimeout(snapTimeoutRef.current)
       }
 
-      // Set new snap timeout - trigger after 150ms no scroll
+      // Set new snap timeout - trigger after 200ms no scroll
       snapTimeoutRef.current = window.setTimeout(() => {
         snapToNearest()
-      }, 150)
+      }, 200)
 
       const rect = container.getBoundingClientRect()
       const viewportHeight = window.innerHeight
@@ -93,15 +103,23 @@ export function useHorizontalScroll(config: HorizontalScrollConfig) {
         // Each phase = 100vw, so we map scroll to 0-400 (for 5 phases)
         const maxTranslate = (numSlides - 1) * 100
         const progress = Math.min(adjustedScroll / adjustedHeight, 1)
-        targetX.current = progress * maxTranslate
+
+        // Only update target if not currently snapping
+        if (!isSnapping.current) {
+          targetX.current = progress * maxTranslate
+        }
       } else if (rect.top > 0) {
         // Before section - reset to 0
-        targetX.current = 0
+        if (!isSnapping.current) {
+          targetX.current = 0
+        }
         isInSection.current = false
       } else if (rect.bottom < viewportHeight) {
         // After section - stay at end
         const maxTranslate = (numSlides - 1) * 100
-        targetX.current = maxTranslate
+        if (!isSnapping.current) {
+          targetX.current = maxTranslate
+        }
         isInSection.current = false
       }
     }
