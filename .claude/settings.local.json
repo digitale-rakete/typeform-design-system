@@ -39,7 +39,8 @@
       "Bash(timeout:*)",
       "Bash(node screenshot-logos.js:*)",
       "Bash(powershell.exe -Command \"Stop-Process -Name node -Force\")",
-      "Bash(npx kill-port:*)"
+      "Bash(npx kill-port:*)",
+      "Bash(if not exist \"hooks\" mkdir hooks)"
     ]
   }
 }
