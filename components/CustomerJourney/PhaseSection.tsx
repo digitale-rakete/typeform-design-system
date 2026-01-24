@@ -13,7 +13,7 @@ export function PhaseSection({ phase, isActive }: PhaseSectionProps) {
   return (
     <section
       id={`phase-${phase.id}`}
-      className="relative min-h-screen w-full md:w-screen flex-shrink-0 flex items-center justify-center py-16 sm:py-20 md:py-24 lg:py-32 px-4 xs:px-5 sm:px-6 md:px-7 lg:px-8"
+      className="relative w-full md:w-screen md:min-h-screen flex-shrink-0 flex items-center justify-center py-16 sm:py-20 md:py-24 lg:py-32 px-4 xs:px-5 sm:px-6 md:px-7 lg:px-8"
       style={{
         background: `radial-gradient(ellipse at center, ${phase.color}08 0%, transparent 70%)`,
       }}

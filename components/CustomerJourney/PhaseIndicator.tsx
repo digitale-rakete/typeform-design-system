@@ -7,16 +7,31 @@ interface PhaseIndicatorProps {
   activePhase: number
   phaseColors: string[]
   onPhaseClick: (phase: number) => void
+  isVisible: boolean
 }
 
 export function PhaseIndicator({
   totalPhases,
   activePhase,
   phaseColors,
-  onPhaseClick
+  onPhaseClick,
+  isVisible
 }: PhaseIndicatorProps) {
   return (
-    <div className="fixed right-8 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col gap-4">
+    <motion.div
+      initial={{ opacity: 0, y: 20, scale: 0.8 }}
+      animate={{
+        opacity: isVisible ? 1 : 0,
+        y: isVisible ? 0 : 20,
+        scale: isVisible ? 1 : 0.8
+      }}
+      transition={{
+        duration: 0.6,
+        ease: [0.34, 1.56, 0.64, 1]
+      }}
+      className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 hidden md:flex flex-row gap-3 items-center justify-center"
+      style={{ pointerEvents: isVisible ? 'auto' : 'none' }}
+    >
       {Array.from({ length: totalPhases }, (_, i) => i + 1).map((phase) => {
         const isActive = phase === activePhase
         const color = phaseColors[phase - 1]
@@ -43,7 +58,7 @@ export function PhaseIndicator({
             />
 
             <span
-              className="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-3 py-1 rounded-lg text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap backdrop-blur-sm pointer-events-none"
+              className="absolute bottom-full mb-4 left-1/2 -translate-x-1/2 px-3 py-1 rounded-lg text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap backdrop-blur-sm pointer-events-none"
               style={{
                 backgroundColor: `${color}20`,
                 color: color,
@@ -55,6 +70,6 @@ export function PhaseIndicator({
           </button>
         )
       })}
-    </div>
+    </motion.div>
   )
 }
