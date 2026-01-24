@@ -28,8 +28,9 @@ export const phases: Phase[] = [
     whatWeDo: [
       'Marktanalyse: Wer sind deine idealen Kunden wirklich?',
       'TAM/SAM/SOM-Analyse',
-      'Definition von Zielkunden & Buyer Personas',
+      'Zielgruppen-Recherche: Gesamte Datenbasis erstellen',
       'KI-basierte Datenvalidierung',
+      'Definition von Zielkunden & Buyer Personas',
       'Kampagnen-Strategie & Messaging'
     ],
     whyItMatters: 'Unternehmen, die ihre Zielkunden präzise definieren, schliessen bis zu 67% mehr Deals ab. Wir finden die 28%, die gerade aktiv nach einer Lösung suchen – nicht die 72%, die deine Zeit verschwenden.',

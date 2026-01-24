@@ -1,9 +1,13 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { Button } from '../Button'
 
 export function FinalCTA() {
+  const pathname = usePathname()
+  const isCaseStudiesPage = pathname === '/case-studies'
+
   return (
     <section className="relative py-32 px-6 lg:px-8 overflow-hidden">
       {/* Background gradient */}
@@ -48,9 +52,19 @@ export function FinalCTA() {
             </Button>
           </a>
 
-          <Button size="lg" variant="secondary" className="w-full sm:min-w-[240px] sm:w-auto">
-            Oder schreib uns
-          </Button>
+          {isCaseStudiesPage ? (
+            <a href="https://calendly.com/eduard-mirdita-digitalerakete/30min" target="_blank" rel="noopener noreferrer">
+              <Button size="lg" variant="secondary" className="w-full sm:min-w-[240px] sm:w-auto">
+                Demo buchen
+              </Button>
+            </a>
+          ) : (
+            <a href="/case-studies">
+              <Button size="lg" variant="secondary" className="w-full sm:min-w-[240px] sm:w-auto">
+                Case Studies
+              </Button>
+            </a>
+          )}
         </motion.div>
 
         {/* Trust Line */}

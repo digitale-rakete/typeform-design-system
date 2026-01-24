@@ -1,11 +1,17 @@
 'use client'
 
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/Button'
 
 export function CaseStudiesHero() {
+  // Scroll to top on page load
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
-    <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-20 md:pt-48 md:pb-24 lg:pt-56 lg:pb-32 px-4 xs:px-5 sm:px-6 md:px-7 lg:px-8">
+    <section className="relative pt-20 pb-16 sm:pt-24 sm:pb-20 md:pt-28 md:pb-24 lg:pt-32 lg:pb-32 px-4 xs:px-5 sm:px-6 md:px-7 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center">
           {/* Badge */}

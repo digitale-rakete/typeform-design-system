@@ -1,42 +1,87 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import { useScroll, useTransform, motion } from 'framer-motion'
 import { PhaseSection } from './PhaseSection'
 import { PhaseIndicator } from './PhaseIndicator'
 import { ScrollProgress } from './ScrollProgress'
 import { phases } from '@/lib/customer-journey-data'
-import { useHorizontalScroll } from '@/hooks/useHorizontalScroll'
-import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 export function CustomerJourney() {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const [activePhase, setActivePhase] = useState(1)
+  const [isVisible, setIsVisible] = useState(false)
   const phaseColors = phases.map(p => p.color)
+  const journeyRef = useRef<HTMLDivElement>(null)
 
-  // Check if we're on desktop (≥768px)
-  const isDesktop = useMediaQuery('(min-width: 768px)')
-
-  // Horizontal scroll hook (only on desktop)
-  const { activeIndex, scrollProgress, translateX } = useHorizontalScroll({
-    containerRef,
-    numSlides: phases.length,
-    enabled: isDesktop
+  // Framer Motion scroll tracking
+  const { scrollYProgress } = useScroll({
+    target: journeyRef,
+    offset: ["start start", "end end"]
   })
 
-  // Active phase is 1-indexed for compatibility
-  const activePhase = activeIndex + 1
+  // Transform vertical scroll progress to horizontal translation
+  const x = useTransform(
+    scrollYProgress,
+    [0, 1],
+    ["0%", `-${(phases.length - 1) * 100}%`]
+  )
+
+  // Update active phase based on scroll progress
+  useEffect(() => {
+    return scrollYProgress.on("change", (latest) => {
+      const phaseIndex = Math.floor(latest * phases.length)
+      const newActivePhase = Math.max(1, Math.min(phases.length, phaseIndex + 1))
+      setActivePhase(newActivePhase)
+    })
+  }, [scrollYProgress])
+
+  // Visibility tracking for PhaseIndicator
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsVisible(entry.isIntersecting)
+      },
+      { threshold: 0.1 }
+    )
+
+    if (journeyRef.current) {
+      observer.observe(journeyRef.current)
+    }
+
+    return () => {
+      if (journeyRef.current) {
+        observer.unobserve(journeyRef.current)
+      }
+    }
+  }, [])
 
   const handlePhaseClick = (phase: number) => {
-    // TODO: Implement horizontal scroll to phase
-    // For now, scroll to container
-    if (containerRef.current) {
-      containerRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    const element = document.getElementById(`phase-${phase}`)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' })
     }
   }
 
-  // Mobile/Tablet: Vertical fallback
-  if (!isDesktop) {
-    return (
-      <div id="journey" className="relative">
+  return (
+    <>
+      {/* Mobile Layout - Simple Vertical Stack */}
+      <div className="block md:hidden py-16 px-4 xs:px-5 sm:px-6">
+        {phases.map((phase) => (
+          <PhaseSection
+            key={phase.id}
+            phase={phase}
+            isActive={true}
+          />
+        ))}
+      </div>
+
+      {/* Desktop Layout - Horizontal Scroll */}
+      <div
+        id="journey"
+        ref={journeyRef}
+        className="hidden md:block relative"
+        style={{ height: `${phases.length * 150}vh` }}
+      >
         <ScrollProgress phaseColors={phaseColors} />
 
         <PhaseIndicator
@@ -44,71 +89,31 @@ export function CustomerJourney() {
           activePhase={activePhase}
           phaseColors={phaseColors}
           onPhaseClick={handlePhaseClick}
+          isVisible={isVisible}
         />
 
-        {phases.map((phase) => (
-          <PhaseSection
-            key={phase.id}
-            phase={phase}
-            isActive={activePhase === phase.id}
-          />
-        ))}
-      </div>
-    )
-  }
-
-  // Desktop: Horizontal scroll
-  return (
-    <div id="journey" className="relative">
-      <ScrollProgress phaseColors={phaseColors} />
-
-      <PhaseIndicator
-        totalPhases={phases.length}
-        activePhase={activePhase}
-        phaseColors={phaseColors}
-        onPhaseClick={handlePhaseClick}
-      />
-
-      {/* Spacer - Provides vertical scroll height */}
-      <div
-        ref={containerRef}
-        style={{ height: `${phases.length * 150}vh` }}
-        className="relative"
-      >
-        {/* Sticky Container - Stays fixed while user scrolls */}
-        <div className="sticky top-0 h-screen overflow-hidden">
-          {/* Horizontal Slider */}
-          <div
-            className="flex h-full"
-            style={{
-              width: `${phases.length * 100}vw`,
-              transform: `translateX(-${translateX}%)`,
-              transition: 'none', // Smooth via lerp, not CSS
-              willChange: 'transform'
-            }}
+        {/* Sticky container that stays in viewport while scrolling */}
+        <div
+          className="sticky top-0 h-screen overflow-hidden"
+          style={{
+            maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+          }}
+        >
+          <motion.div
+            style={{ x }}
+            className="flex flex-row h-full"
           >
-            {phases.map((phase, index) => {
-              // Calculate distance from active phase for fade effect
-              const distanceFromActive = Math.abs(index - activeIndex)
-              const opacity = distanceFromActive === 0 ? 1 :
-                             distanceFromActive === 1 ? 0.15 : 0.05
-
-              return (
-                <div
-                  key={phase.id}
-                  className="w-screen h-screen flex-shrink-0 transition-opacity duration-500"
-                  style={{ opacity }}
-                >
-                  <PhaseSection
-                    phase={phase}
-                    isActive={activePhase === phase.id}
-                  />
-                </div>
-              )
-            })}
-          </div>
+            {phases.map((phase) => (
+              <PhaseSection
+                key={phase.id}
+                phase={phase}
+                isActive={activePhase === phase.id}
+              />
+            ))}
+          </motion.div>
         </div>
       </div>
-    </div>
+    </>
   )
 }

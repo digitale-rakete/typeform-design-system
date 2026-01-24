@@ -13,29 +13,27 @@ export function PhaseSection({ phase, isActive }: PhaseSectionProps) {
   return (
     <section
       id={`phase-${phase.id}`}
-      className="relative w-screen h-screen flex items-center justify-center px-8"
+      className="relative min-h-screen w-full md:w-screen flex-shrink-0 flex items-center justify-center py-16 sm:py-20 md:py-24 lg:py-32 px-4 xs:px-5 sm:px-6 md:px-7 lg:px-8"
       style={{
         background: `radial-gradient(ellipse at center, ${phase.color}08 0%, transparent 70%)`,
       }}
     >
-      <div className="max-w-5xl w-full">
+      <div className="max-w-7xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="text-center"
         >
-          {/* Phase Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mb-8"
-          >
-            <div
-              className="inline-flex items-center justify-center w-20 xs:w-20 sm:w-24 md:w-24 h-20 xs:h-20 sm:h-24 md:h-24 rounded-full backdrop-blur-sm"
+          {/* Left-aligned Header with Icon + Stacked Text */}
+          <div className="flex items-start gap-4 mb-6">
+            {/* Icon */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1, duration: 0.5, ease: [0.34, 1.56, 0.64, 1] }}
+              className="flex-shrink-0 inline-flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full backdrop-blur-sm"
               style={{
                 backgroundColor: `${phase.color}15`,
                 border: `3px solid ${phase.color}40`,
@@ -44,167 +42,153 @@ export function PhaseSection({ phase, isActive }: PhaseSectionProps) {
             >
               <LordIcon
                 icon={phase.lordIcons.primary}
-                size={80}
+                size={60}
                 colorize={phase.color}
                 loop={true}
                 speed={phase.id === 1 ? 0.5 : 1}
               />
-            </div>
-          </motion.div>
+            </motion.div>
 
-          {/* Phase Number */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="mb-6"
-          >
-            <span
-              className="inline-block px-4 xs:px-5 sm:px-6 md:px-6 py-1.5 xs:py-2 sm:py-2 rounded-full text-xs xs:text-sm sm:text-sm font-bold tracking-wider backdrop-blur-sm"
-              style={{
-                backgroundColor: `${phase.color}10`,
-                color: phase.color,
-                border: `2px solid ${phase.color}30`,
-              }}
-            >
-              PHASE {phase.id}: {phase.name}
-            </span>
-          </motion.div>
-
-          {/* Headline */}
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="text-3xl xs:text-4xl sm:text-4xl md:text-5xl lg:text-5xl font-bold mb-4 text-white"
-          >
-            {phase.headline}
-          </motion.h2>
-
-          {/* Timeframe */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.5 }}
-            className="text-base xs:text-lg sm:text-lg md:text-xl font-semibold mb-8"
-            style={{ color: phase.color }}
-          >
-            {phase.timeframe}
-          </motion.p>
-
-          {/* "Was wir machen" Überschrift - Subtil */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.65 }}
-            className="text-xs uppercase tracking-wider mb-4 text-white/50 font-semibold"
-          >
-            Was wir machen
-          </motion.p>
-
-          {/* Description Items - Glassmorphism Cards */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.6 }}
-            className="grid gap-2 xs:gap-3 sm:gap-3 text-left mb-8 max-w-3xl mx-auto"
-          >
-            {phase.whatWeDo.map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+            {/* Stacked Text - Left Aligned */}
+            <div className="flex flex-col gap-1">
+              {/* Phase Name */}
+              <motion.span
+                initial={{ opacity: 0, y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.7 + index * 0.1 }}
-                className="flex items-start gap-2 xs:gap-3 sm:gap-3 p-3 xs:p-4 sm:p-4 rounded-xl backdrop-blur-sm border transition-all duration-300"
+                transition={{ delay: 0.2, duration: 0.4 }}
+                className="inline-block px-3 py-1 rounded-full text-xs font-bold tracking-wider backdrop-blur-sm w-fit"
                 style={{
-                  backgroundColor: 'rgba(42, 31, 61, 0.3)',
-                  borderColor: 'rgba(255, 255, 255, 0.08)',
+                  backgroundColor: `${phase.color}10`,
+                  color: phase.color,
+                  border: `2px solid ${phase.color}30`,
                 }}
               >
-                <div
-                  className="w-2 h-2 rounded-full mt-2 flex-shrink-0"
-                  style={{
-                    backgroundColor: phase.color,
-                    boxShadow: `0 0 10px ${phase.color}80`
+                PHASE {phase.id}: {phase.name}
+              </motion.span>
+
+              {/* Headline */}
+              <motion.h2
+                initial={{ opacity: 0, y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, duration: 0.4 }}
+                className="text-2xl sm:text-3xl font-bold text-white"
+              >
+                {phase.headline}
+              </motion.h2>
+
+              {/* Timeframe */}
+              <motion.p
+                initial={{ opacity: 0, y: -10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.4, duration: 0.4 }}
+                className="text-base sm:text-lg font-semibold"
+                style={{ color: phase.color }}
+              >
+                {phase.timeframe}
+              </motion.p>
+            </div>
+          </div>
+
+          {/* 2-Column Layout: Left = Items, Right = Warum + Ergebnis */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* LEFT COLUMN - All Items */}
+            <div className="flex flex-col gap-3">
+              {phase.whatWeDo.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    delay: 0.5 + index * 0.05,
+                    duration: 0.4,
+                    ease: 'easeOut'
                   }}
-                />
-                <p className="text-white/90 leading-relaxed text-sm xs:text-base sm:text-base">
-                  {item}
+                  className="flex items-start gap-2 p-3 rounded-lg backdrop-blur-sm border transition-all duration-300"
+                  style={{
+                    backgroundColor: 'rgba(42, 31, 61, 0.3)',
+                    borderColor: 'rgba(255, 255, 255, 0.08)',
+                  }}
+                >
+                  <div
+                    className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
+                    style={{
+                      backgroundColor: phase.color,
+                      boxShadow: `0 0 8px ${phase.color}80`
+                    }}
+                  />
+                  <p className="text-white/90 text-sm leading-relaxed">
+                    {item}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* RIGHT COLUMN - Warum + Ergebnis */}
+            <div className="flex flex-col gap-3">
+              {/* "Warum das entscheidend ist" */}
+              <motion.div
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  delay: 0.7,
+                  duration: 0.5,
+                  ease: [0.34, 1.56, 0.64, 1]
+                }}
+                className="p-4 rounded-lg backdrop-blur-sm border transition-all duration-300 flex-1"
+                style={{
+                  backgroundColor: 'rgba(42, 31, 61, 0.35)',
+                  borderColor: `${phase.color}30`,
+                  boxShadow: `0 0 20px ${phase.color}15`,
+                }}
+              >
+                <h3
+                  className="text-sm font-bold uppercase tracking-wider mb-3"
+                  style={{ color: phase.color }}
+                >
+                  💡 Warum das entscheidend ist
+                </h3>
+                <p className="text-white/90 text-sm leading-relaxed">
+                  {phase.whyItMatters}
                 </p>
               </motion.div>
-            ))}
-          </motion.div>
 
-          {/* "Warum das entscheidend ist" Card */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.9 }}
-            className="mb-6 p-5 xs:p-6 sm:p-6 md:p-6 rounded-2xl backdrop-blur-sm border transition-all duration-300 max-w-3xl mx-auto"
-            style={{
-              backgroundColor: 'rgba(42, 31, 61, 0.35)',
-              borderColor: `${phase.color}30`,
-              boxShadow: `0 0 20px ${phase.color}15`,
-            }}
-          >
-            <h3
-              className="text-sm xs:text-base sm:text-base font-bold uppercase tracking-wider mb-4"
-              style={{ color: phase.color }}
-            >
-              Warum das entscheidend ist
-            </h3>
-            <p className="text-white/80 leading-relaxed text-sm xs:text-base sm:text-base">
-              {phase.whyItMatters}
-            </p>
-          </motion.div>
-
-          {/* Result Box */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 1.1 }}
-            className="p-5 xs:p-6 sm:p-6 md:p-6 rounded-2xl backdrop-blur-sm border-2 transition-all duration-300 max-w-3xl mx-auto"
-            style={{
-              backgroundColor: 'rgba(42, 31, 61, 0.4)',
-              borderColor: phase.color,
-              boxShadow: `0 0 30px ${phase.color}20`,
-            }}
-          >
-            <p className="text-xs xs:text-sm sm:text-sm uppercase tracking-wider text-white/50 mb-2 font-semibold">
-              Ergebnis
-            </p>
-            <p
-              className="text-base xs:text-lg sm:text-lg md:text-xl font-bold"
-              style={{ color: phase.color }}
-            >
-              {phase.result}
-            </p>
-          </motion.div>
-
-          {/* Special: Infinity Symbol for Phase 5 */}
-          {phase.special === 'infinity' && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 1.2, duration: 1 }}
-              className="mt-12 text-6xl xs:text-7xl sm:text-8xl md:text-8xl font-bold"
-              style={{
-                color: phase.color,
-                textShadow: `0 0 40px ${phase.color}60`,
-              }}
-            >
-              ∞
-            </motion.div>
-          )}
+              {/* Result */}
+              <motion.div
+                initial={{ opacity: 0, y: 20, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{
+                  delay: 0.85,
+                  duration: 0.5,
+                  ease: [0.34, 1.56, 0.64, 1]
+                }}
+                className="p-4 rounded-lg backdrop-blur-sm border-2 transition-all duration-300"
+                style={{
+                  backgroundColor: 'rgba(42, 31, 61, 0.4)',
+                  borderColor: phase.color,
+                  boxShadow: `0 0 30px ${phase.color}20`,
+                }}
+              >
+                <h3
+                  className="text-sm font-bold uppercase tracking-wider mb-3"
+                  style={{ color: phase.color }}
+                >
+                  ✓ Ergebnis
+                </h3>
+                <p
+                  className="text-base font-semibold"
+                  style={{ color: phase.color }}
+                >
+                  {phase.result}
+                </p>
+              </motion.div>
+            </div>
+          </div>
         </motion.div>
       </div>
 

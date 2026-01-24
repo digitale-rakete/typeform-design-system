@@ -1,3 +1,6 @@
+'use client'
+
+import { useEffect } from 'react'
 import { Navbar } from '@/components/Navbar'
 import { GradientMesh } from '@/components/ui/GradientMesh'
 import { Hero } from '@/components/sections/Hero'
@@ -12,8 +15,13 @@ import { Packages } from '@/components/sections/Packages'
 import { FinalCTA } from '@/components/sections/FinalCTA'
 
 export default function Home() {
+  // Scroll to top on page load
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
-    <main className="relative min-h-screen">
+    <main className="relative min-h-screen overflow-x-hidden">
       {/* Animated background gradient */}
       <GradientMesh />
 
