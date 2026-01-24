@@ -53,3 +53,16 @@ next-env.d.ts
 # React Bits Reference (cloned repository for component library)
 .react-bits-reference
 nul
+
+# Playwright
+/test-results/
+/playwright-report/
+/playwright/.cache/
+
+# Screenshots and debug files
+screenshots/
+*.png
+!public/**/*.png
+
+# Local dev files
+.claude/

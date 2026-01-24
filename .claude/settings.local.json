@@ -40,7 +40,10 @@
       "Bash(node screenshot-logos.js:*)",
       "Bash(powershell.exe -Command \"Stop-Process -Name node -Force\")",
       "Bash(npx kill-port:*)",
-      "Bash(if not exist \"hooks\" mkdir hooks)"
+      "Bash(if not exist \"hooks\" mkdir hooks)",
+      "Bash(ping:*)",
+      "Bash(Get-Process node -ErrorAction SilentlyContinue)",
+      "Bash(Stop-Process -Force)"
     ]
   }
 }
